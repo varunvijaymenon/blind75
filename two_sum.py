@@ -3,11 +3,13 @@
 def two_sum(nums, target):
 
 
-    # Can be updated to check difference
-    for i in range(0, len(nums)):
-        for j in range(i+1, len(nums)):
-            if nums[i]+nums[j]==target:
-                return [i,j]
+    # improved the efficieny by removing a loop
+    for index, i in enumerate(nums):
+        new_target = target - i
+
+        if new_target in nums[index+1:]:
+            return [index, nums.index(new_target, index+1)]
+    return None
             
 
 
